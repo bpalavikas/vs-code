@@ -1,0 +1,180 @@
+[
+    // Keybindings for vscode explorer
+    // New files and folders
+    {"key": "ctrl+shift+n","command": "explorer.newFile","when": "explorerViewletFocus"},
+	// {"key": "ctrl+shift+n","command": "workbench.action.newWindow","when": "!explorerViewletFocus"},
+	{"key": "ctrl+alt+n","command": "explorer.newFolder","when": "explorerViewletFocus"},
+    // Toggle workbench side bars
+    {"key": "ctrl+alt+b","command": "workbench.action.toggleAuxiliaryBar"},
+    // {"key": "ctrl+alt+b","command": "-workbench.action.toggleAuxiliaryBar"},
+    {"key": "ctrl+b","command": "workbench.action.toggleSidebarVisibility"},
+    // Close the active editor
+    {"key": "ctrl+w","command": "workbench.action.closeActiveEditor"},
+	// Save all good when in insert mode
+    {"key": "ctrl+alt+s","command": "-workbench.action.files.save"},
+    {"key": "ctrl+alt+s","command": "workbench.action.files.save"},
+    
+    // Reopen last closed editor
+    {"key": "alt+t","command": "workbench.action.reopenClosedEditor"},
+    // Open template only called from explorer
+    {"key": "ctrl+alt+t","command": "extension.fileFromTemplate","when": "explorerViewletFocus"},
+    //
+    {"key": "ctrl+k","command": "extension.vim_ctrl+k","when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"},
+    // Move up and down in pop up selections
+    {"key": "ctrl+shift+k","command": "selectPrevSuggestion","when": "editorTextFocus"},
+    {"key": "ctrl+shift+j","command": "selectNextSuggestion","when": "editorTextFocus"},
+    // move up and down in insert mode 
+    {"key": "ctrl+alt+j","command": "cursorDown","when": "editorTextFocus"},
+    {"key": "ctrl+alt+k","command": "cursorUp","when": "editorTextFocus"},
+    // Open the git graph 
+    {"key": "ctrl+alt+g","command": "git-graph.view"},
+    // Toggle terminal 
+    {
+        "key": "ctrl+\\",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    
+    {
+        "key": "ctrl+j",
+        "command": "extension.vim_ctrl+j",
+        "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"
+    },
+   
+    {
+        "key": "ctrl+shift+alt+p",
+        "command": "platformio-ide.build",
+        "when": "pioProjectReady && pioProjectTasksReady"
+    },
+    {
+        "key": "ctrl+alt+f ctrl+alt+d",
+        "command": "liveshare.unfollow",
+        "when": "liveshare:hasCollaborators && liveshare:isFollowing"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "gitlens.toggleFileChanges"
+    },
+    {
+        "key": "shift+alt+b",
+        "command": "gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+    },
+    {
+        "key": "alt+b",
+        "command": "-gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+    },
+    {
+        "key": "ctrl+shift+alt+b",
+        "command": "gitlens.toggleCodeLens",
+        "when": "editorTextFocus && !gitlens:disabled && !gitlens:disabledToggleCodeLens && config.gitlens.keymap == 'alternate'"
+    },
+    {
+        "key": "shift+alt+b",
+        "command": "-gitlens.toggleCodeLens",
+        "when": "editorTextFocus && !gitlens:disabled && !gitlens:disabledToggleCodeLens && config.gitlens.keymap == 'alternate'"
+    },
+    {
+        "key": "shift+alt+b",
+        "command": "gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+    },
+    {
+        "key": "ctrl+shift+g b",
+        "command": "-gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+    },
+    {
+        "key": "ctrl+shift+alt+m",
+        "command": "workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "-workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "workbench.view.extension.vscode-serial-monitor-tools"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "vscode-serial-monitor.clearOutput"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "backspace",
+        "command": "deleteLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+backspace",
+        "command": "deleteLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+alt+s",
+        "command": "vscode-embedded.convertStProject"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+    },
+    {
+        "key": "ctrl+shift+g g",
+        "command": "-workbench.view.scm",
+        "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+    },
+    {
+        "key": "alt+/ alt+\\",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "alt+a",
+        "command": "github.copilot.acceptCursorPanelSolution",
+        "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-github.copilot.acceptCursorPanelSolution",
+        "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "alt+a",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
+    },
+    {
+        "key": "tab",
+        "command": "-editor.action.inlineSuggest.commit",
+        "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+c c",
+        "command": "workbench.action.toggleCenteredLayout"
+    },
+    {
+        "key": "alt+f c",
+        "command": "cody.command.smell-code"
+    },
+    {
+        "key": "alt+e c",
+        "command": "cody.command.explain-code"
+    },
+
+]

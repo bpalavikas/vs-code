@@ -1,0 +1,260 @@
+{
+    "editor.fontLigatures": false,
+    "editor.fontFamily": "Courier Screenplay,Courier Prime Code, Courier New, monospace",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.suggest.selectionMode": "whenTriggerCharacter",
+    "editor.detectIndentation": false,
+    "editor.parameterHints.enabled": false,
+    "cSpell.userWords": [
+        "ACRI",
+        "dout",
+        "GPIO",
+        "haurt",
+        "hdma",
+        "huart",
+        "Leds",
+        "neopixel",
+        "netbuf",
+        "netconn",
+        "Palavikas",
+        "segger",
+        "systick",
+        "uart",
+        "usart"
+    ],
+    "ltex.additionalRules.enablePickyRules": true,
+    "remote.SSH.remotePlatform": {
+        "10.180.34.11": "linux",
+        "192.168.199.128": "linux",
+        "192.168.159.129": "linux",
+        "192.168.163.128": "linux"
+    },
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.wordBasedSuggestions": "off",
+    "editor.quickSuggestionsDelay": 10,
+    "editor.hover.enabled": false,
+
+    "editor.codeActionsOnSave": {
+
+    },
+    "redhat.telemetry.enabled": true,
+    "git.autofetch": true,
+    "cmake.additionalCompilerSearchDirs": [
+        "C:/msys64/mingw32/bin",
+        "C:/msys64/clang32/bin",
+        "C:/msys64/clang64/bin",
+        "C:/msys64/clangarm64/bin",
+        "C:/msys64/ucrt64/bin",
+        "C:/msys64/mingw64/bin",
+    ],
+    
+    "explorer.autoReveal": true,
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "bash (MSYS2)": {
+            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "args": [
+                "--login",
+                "-i"
+            ]
+        },
+        "Cygwin Zsh": {
+            "path": "C:\\cygwin64\\bin\\zsh.exe",
+            "args": ["--login","-i"]
+        }
+    },
+    "terminal.integrated.cwd": "${workspaceFolder}",
+
+    "vim.visualModeKeyBindingsNonRecursive": [
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+
+
+        {"before": ["j","j"],"after": ["<esc>"]},
+
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // screen spit
+        {"before": ["<leader>","v"],"commands": [":vsplit"]},
+        {"before": ["<leader>","b"],"commands": [":split"]},
+        // clear highlight
+        {"before": ["<leader>","c","h",],"commands": [":noh"],},
+        // Searching and replace line and file
+        {"before": ["<leader>","r","l",],"commands": [":s"],},
+        {"before": ["<leader>","r","f",],"commands": [":%s"],},
+        // Moving across editor group tabs
+        {"before": ["<leader>","u"],"commands": ["workbench.action.navigateEditorGroups"]},
+        // move current file to next or previous tab group
+        {"before": ["<leader>","h"],"commands": ["workbench.action.moveEditorToNextGroup"]},
+        {"before": ["<leader>","g"],"commands": ["workbench.action.moveEditorToPreviousGroup"]},
+        // Search through files in whole workspace
+        {"before": ["<leader>","f","f"],"commands": ["workbench.action.quickOpen"]},
+        // Search through files in the current tab group
+        {"before": ["<leader>","f"],"commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"]},
+        // open the definition in new tab
+        {"before": ["<leader>","r","d"],"commands": ["editor.action.revealDefinitionAside"]},
+        // Focus on side bar
+        {"before": ["<leader>","s"],"commands": ["workbench.action.focusSideBar"]},
+        // cmake build project
+        {"before": ["<leader>","<leader>","b"],"commands": ["cmake.build"]},
+        // Harpoon commands
+
+        { "before": ["<leader>","<leader>","k"],"commands": ["vscode-harpoon.gotoNextHarpoonEditor"],},
+        { "before": ["<leader>","<leader>","l"],"commands": ["vscode-harpoon.gotoLastHarpoonEditor"],},
+        { "before": ["<leader>","<leader>","d"],"commands": ["vscode-harpoon.removeEditor"],},
+        { "before": ["<leader>","<leader>","c"],"commands": ["vscode-harpoon.clearHarpoon"],},
+        { "before": ["<leader>","<leader>","m"],"commands": ["vscode-harpoon.addEditor"],},
+        { "before": ["<leader>","<leader>","j"],"commands": ["vscode-harpoon.gotoPreviousHarpoonEditor"],},
+        { "before": ["<leader>","<leader>","h"],"commands": ["vscode-harpoon.editorQuickPick"],},
+        
+    ],
+    "vim.insertModeKeyBindings": [
+
+        {"before": ["j","j"],"after": ["<esc>"]},
+
+    ],
+    "vim.normalModeKeyBindings": [
+        // Add line below
+        {"before": ["<leader>","j"],"after": ["o","<esc>"]},
+        // Add line above
+        {"before": ["<leader>","k"],"after": ["shift+o","<esc>"]},
+        // Save current file
+        {"before": ["<leader>","w"],"commands": ["workbench.action.files.save"]},
+    ],
+    // Cursor style
+    "vim.cursorStylePerMode.visualline": "block-outline",
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.visual": "underline",
+    "vim.leader": " ",
+    "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.smartcase": true, 
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.highlightDuration": 5000,
+    "vim.searchHighlightColor": "findMatchHighlightBackground",
+    "vim.searchHighlightTextColor": "#ffffff",
+    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+    "vim.highlightedyank.textColor": "#ffffff",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "vim.hlsearch": true,
+    "vim.scroll": 25,
+    "vim.autoindent": true,
+
+    // VSCODE
+    "editor.minimap.enabled": false,
+    "editor.rulers": [80],
+    "editor.tabSize": 4,
+    "workbench.colorCustomizations": {"editorRuler.foreground": "#434b6d"},
+    "editor.lineNumbers": "relative",
+    "editor.scrollbar.horizontal": "visible",
+    "STM32VSCodeExtension.projectCreator.executablePath": "C:\\ST\\CubeMX\\STM32CubeMX.exe",
+    "STM32VSCodeExtension.productFinder.executablePath": "C:\\Program Files\\STMicroelectronics\\STMCUFinder\\STMCUFinder.exe",
+    "C_Cpp.default.cppStandard": "c++03",
+    "C_Cpp.default.cStandard": "c23",
+    "vim.handleKeys": {
+
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vcpkg.activateOnWorkspaceOpen": false,
+    "keil-studio.silenceLicensingNotifications": true,
+    "C_Cpp.default.customConfigurationVariables": {},
+    "C_Cpp.default.compilerPath": "",
+    "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+    "gitlens.graph.layout": "editor",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "cmake.configureOnOpen": true,
+    "vscode-embedded.loggingVerbosity": "info",
+    "cortex-debug.liveWatchRefreshRate": 300,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "cortex-debug.JLinkGDBServerPath.windows": "C:\\Program Files\\SEGGER\\JLink\\JLinkGDBServerCL.exe",
+    "cortex-debug.JLinkGDBServerPath": "C:\\Program Files\\SEGGER\\JLink\\JLinkGDBServer.exe",
+    "python.defaultInterpreterPath": "py",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "latex.linter.path": "C:\\texlive\\2023\\texmf-dist\\chktex\\chktexrc",
+    "latex.formatter.path": "C:\\texlive\\2023\\texmf-dist\\chktex\\chktexrc",
+    "workbench.editorAssociations": {
+        "*.pdf": "default"
+    },
+    "cmake.showOptionsMovedNotification": false,
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path-windows": "C:\\Users\\bpala\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
+        "vscode-kubernetes.minikube-path-windows": "C:\\Users\\bpala\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe"
+    },
+    "editor.inlineSuggest.enabled": false,
+    "go.lintOnSave": "off",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "errorLens.excludeBySource": [
+        "\"cSpell\"",
+        "code-spell-checker"
+    ],
+    "errorLens.delay": 800,
+    "errorLens.delayMode": "debounce",
+    "window.titleBarStyle": "custom",
+    "cSpell.enableFiletypes": [
+        "lua"
+    ],
+    "workbench.sideBar.location": "right",
+    "workbench.layoutControl.enabled": false,
+    "git.openRepositoryInParentFolders": "always",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "Mononoki Nerd Font",
+    "errorLens.exclude": [
+        "possible typo",
+        "possible spelling mistake",
+        "unknown word",
+        "do you wish to insert an arrow"
+    ],
+    "errorLens.respectUpstreamEnabled": {
+        "statusBar": true
+    },
+    "cmake.cmakePath": "C:\\Program Files\\CMake\\bin\\cmake.exe",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX"
+    ],
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "STM32VSCodeExtension.cubeCLT.path": "/opt/st/stm32cubeclt_1.15.0"
+    
+
+
+}
