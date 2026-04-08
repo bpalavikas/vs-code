@@ -1,0 +1,991 @@
+[
+  // ───────── Explorer (context-only) ─────────
+  {
+    "key": "ctrl+shift+n",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+alt+t",
+    "command": "extension.fileFromTemplate",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+alt+m",
+    "command": "fileutils.moveFile",
+    "when": "explorerViewletFocus"
+  },
+
+  // ───────── Files / Editors ─────────
+  // Scope global new-untitled away from Explorer focus to avoid conflict with the folder binding above
+  {
+    "key": "ctrl+alt+n",
+    "command": "workbench.action.files.newUntitledFile",
+    "when": "!explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+alt+s",
+    "command": "workbench.action.files.save"
+  },
+  {
+    "key": "alt+t",
+    "command": "workbench.action.reopenClosedEditor"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.reopenClosedEditor"
+  },
+
+  // ───────── UI Toggles ─────────
+  // Unbind default New Window to let centered layout use Ctrl+Alt+C
+  {
+    "key": "ctrl+alt+c",
+    "command": "-workbench.action.newWindow"
+  },
+  {
+    "key": "ctrl+alt+c",
+    "command": "workbench.action.toggleCenteredLayout"
+  },
+  {
+    "key": "ctrl+alt+b",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+
+  // ───────── Vim-style universal list & menu navigation ─────────
+  // Any VS Code list/dropdown (Explorer, search, pickers, etc.)
+  {
+    "key": "ctrl+p",
+    "command": "list.focusPrevious",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "list.focusNext",
+    "when": "listFocus && !inputFocus"
+  },
+
+  // Quick Open results
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+
+  // IntelliSense suggestions (autocomplete popup)
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+
+  // Vim-style confirm with Ctrl+Y (disable Enter)
+  {
+    "key": "enter",
+    "command": "-acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+
+  // Keep Vim scroll-up in editor when suggestions aren’t open
+  {
+    "key": "ctrl+y",
+    "command": "scrollLineUp",
+    "when": "editorTextFocus && !suggestWidgetVisible"
+  },
+
+  // ───────── Focus escape ─────────
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorTextFocus"
+  },
+
+  // ───────── Move lines (free arrow variants) ─────────
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "-editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+up",
+    "command": "-editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // ───────── Editor/tab navigation ─────────
+  // Vim-like tab jumps with Ctrl+H / Ctrl+L
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-expandLineSelection"
+  },
+
+  // Editor group navigation
+  {
+    "key": "ctrl+shift+h",
+    "command": "-workbench.action.replaceInFiles"
+  },
+  {
+    "key": "ctrl+k ctrl+pagedown",
+    "command": "-workbench.action.nextEditorInGroup"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.previousEditorInGroup"
+  },
+  {
+    "key": "ctrl+k ctrl+pageup",
+    "command": "-workbench.action.previousEditorInGroup"
+  },
+
+  // ───────── Git / SCM (extensions on all profiles) ─────────
+  {
+    "key": "ctrl+alt+g",
+    "command": "git-graph.view"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "gitlens.toggleFileChanges"
+  },
+  {
+    "key": "ctrl+alt+g ctrl+alt+b",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "ctrl+shift+alt+b",
+    "command": "gitlens.toggleCodeLens",
+    "when": "editorTextFocus && !gitlens:disabled && !gitlens:disabledToggleCodeLens && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "shift+alt+b",
+    "command": "-gitlens.toggleCodeLens",
+    "when": "editorTextFocus && !gitlens:disabled && !gitlens:disabledToggleCodeLens && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "ctrl+shift+g g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+
+  // ───────── Terminal ─────────
+  {
+    "key": "ctrl+\\",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+
+  // ───────── Misc / Cleanup ─────────
+  {
+    "key": "ctrl+alt+f ctrl+alt+d",
+    "command": "liveshare.unfollow",
+    "when": "liveshare:hasCollaborators && liveshare:isFollowing"
+  },
+  {
+    "key": "ctrl+shift+alt+m",
+    "command": "workbench.actions.view.problems",
+    "when": "workbench.panel.markers.view.active"
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "-workbench.actions.view.problems",
+    "when": "workbench.panel.markers.view.active"
+  },
+
+  // Keep Backspace behavior explicit
+  {
+    "key": "backspace",
+    "command": "deleteLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+backspace",
+    "command": "deleteLeft",
+    "when": "textInputFocus"
+  },
+
+  // Split editor
+  {
+    "key": "alt+/ alt+\\",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+\\",
+    "command": "-workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+shift+alt+w",
+    "command": "workbench.action.closeWindow"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "ctrl+shift+alt+d",
+    "command": "editor.detectLanguage",
+    "when": "editorTextFocus && !notebookEditable"
+  },
+  {
+    "key": "shift+alt+d",
+    "command": "-editor.detectLanguage",
+    "when": "editorTextFocus && !notebookEditable"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-workbench.action.chat.applyInEditor",
+    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
+  },
+  {
+    "key": "ctrl+alt+/",
+    "command": "-workbench.action.chat.attach.instructions",
+    "when": "chatIsEnabled && config.chat.promptFiles"
+  },
+  {
+    "key": "ctrl+alt+.",
+    "command": "-github.copilot.chat.rerunWithCopilotDebug",
+    "when": "github.copilot-chat.activated && terminalFocus && terminalShellIntegrationEnabled && !terminalAltBufferActive"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "-workbench.action.chat.focusConfirmation",
+    "when": "accessibilityModeEnabled && chatIsEnabled"
+  },
+  {
+    "key": "alt+f5",
+    "command": "-chatEditor.action.navigateNext",
+    "when": "chatEdits.hasEditorModifications && chatIsEnabled && editorFocus || chatEdits.hasEditorModifications && chatIsEnabled && notebookCellListFocused"
+  },
+  {
+    "key": "shift+alt+f5",
+    "command": "-chatEditor.action.navigatePrevious",
+    "when": "chatEdits.hasEditorModifications && chatIsEnabled && editorFocus || chatEdits.hasEditorModifications && chatIsEnabled && notebookCellListFocused"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-workbench.action.chat.insertCodeBlock",
+    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "-workbench.action.chat.open",
+    "when": "!chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "ctrl+shift+alt+i",
+    "command": "-workbench.action.chat.openagent",
+    "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "ctrl+alt+pageup",
+    "command": "-workbench.action.chat.previousCodeBlock",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+alt+enter",
+    "command": "-workbench.action.chat.runInTerminal",
+    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+alt+y",
+    "command": "-chatEditor.action.acceptAllEdits",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookEditorFocused && !chatEdits.isCurrentlyBeingModified"
+  },
+  {
+    "key": "ctrl+shift+y",
+    "command": "-chatEditor.action.accept",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookEditorFocused && !chatEdits.isCurrentlyBeingModified"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "-chatEditor.action.acceptHunk",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookCellListFocused && !chatEdits.isCurrentlyBeingModified"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.openChat",
+    "when": "chatIsEnabled && inChat && inChatEditor"
+  },
+  {
+    "key": "ctrl+alt+pagedown",
+    "command": "-workbench.action.chat.nextCodeBlock",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+f9",
+    "command": "-workbench.action.chat.nextFileTree",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+alt+down",
+    "command": "-workbench.action.chat.nextUserPrompt",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+shift+f9",
+    "command": "-workbench.action.chat.previousFileTree",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+alt+up",
+    "command": "-workbench.action.chat.previousUserPrompt",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "alt+meta+/",
+    "command": "-workbench.action.chat.run.prompt",
+    "when": "chatIsEnabled && config.chat.promptFiles"
+  },
+  {
+    "key": "f7",
+    "command": "-chatEditor.action.showAccessibleDiffView",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-workbench.action.chat.startVoiceChat",
+    "when": "chatIsEnabled && hasSpeechProvider && inChatInput && !chatSessionRequestInProgress && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress || chatIsEnabled && hasSpeechProvider && inlineChatFocused && !chatSessionRequestInProgress && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress"
+  },
+  {
+    "key": "escape",
+    "command": "-workbench.action.chat.stopListening",
+    "when": "voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-workbench.action.chat.stopListeningAndSubmit",
+    "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+  },
+  {
+    "key": "escape",
+    "command": "-workbench.action.speech.stopReadAloud",
+    "when": "scopedChatSynthesisInProgress && textToSpeechInProgress"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "-chatEditor.action.reject",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookEditorFocused && !chatEdits.isCurrentlyBeingModified"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-chatEditor.action.undoHunk",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookCellListFocused && !chatEdits.isCurrentlyBeingModified"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-inlineChat.acceptChanges",
+    "when": "inlineChatHasProvider && inlineChatVisible"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-inlineChat2.close",
+    "when": "inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.isRequestInProgress && chatEdits.requestCount == '0' || inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.hasEditorModifications && !chatEdits.isRequestInProgress && chatEdits.requestCount == '0'"
+  },
+  {
+    "key": "escape",
+    "command": "-inlineChat2.close",
+    "when": "inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.hasEditorModifications && !chatEdits.isRequestInProgress || inlineChatHasEditsAgent && inlineChatVisible && !chatEdits.isRequestInProgress && chatEdits.requestCount == '0'"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "-chat.action.focus",
+    "when": "chatCursorAtTop && inChatInput && !quickChatHasFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "-chat.action.focus",
+    "when": "inChatInput && isLinux && !quickChatHasFocus || inChatInput && isWindows && !quickChatHasFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "-chat.action.focus",
+    "when": "inChat && inChatInput && quickChatHasFocus"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "-chat.inlineResourceAnchor.copyResource",
+    "when": "chatAttachmentResource"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-chat.inlineResourceAnchor.openToSide",
+    "when": "chatAttachmentResource"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-chatEditing.acceptAllFiles",
+    "when": "hasUndecidedChatEditingResource && inChatInput"
+  },
+  {
+    "key": "ctrl+backspace",
+    "command": "-chatEditing.discardAllFiles",
+    "when": "hasUndecidedChatEditingResource && inChatInput && !chatInputHasText"
+  },
+  {
+    "key": "shift+alt+f7",
+    "command": "-chatEditor.action.toggleDiff",
+    "when": "chatEdits.hasEditorModifications && editorFocus"
+  },
+
+  // ----------------- BUID CLEAN CONFIG DISPLAY ---------------------------------
+
+  // // Python ML AI 
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Run: current file (ai-env)",
+  //   "when": "editorTextFocus && editorLangId == 'python' && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Clean (pyc & caches)",
+  //   "when": "editorTextFocus && editorLangId == 'python' && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "python.setInterpreter",
+  //   "when": "editorTextFocus && editorLangId == 'python' && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "TensorBoard: start (ai-env)",
+  //   "when": "editorTextFocus && editorLangId == 'python' && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+
+  // // Data Science
+  // // ── Build ────────────────────────────────────────────────────────────────
+  // {
+  //   "key": "shift+alt+b p",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: Py Run current file",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+b m",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: MATLAB Run current file",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+b r",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: R Run current file",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+
+  // // ── Clean ────────────────────────────────────────────────────────────────
+  // {
+  //   "key": "shift+alt+c p",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: Py Clean (pyc & caches)",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+c m",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: MATLAB Clean",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+c r",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: R Clean",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+
+  // // ── Configure ────────────────────────────────────────────────────────────
+  // {
+  //   "key": "shift+alt+x p",
+  //   "command": "python.setInterpreter",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+x m",
+  //   "command": "workbench.action.openSettings",
+  //   "args": "matlab",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+x r",
+  //   "command": "workbench.action.openSettings",
+  //   "args": "r.rterm",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+
+  // // ── Display ──────────────────────────────────────────────────────────────
+  // {
+  //   "key": "shift+alt+d p",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: Py REPL",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+d m",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: MATLAB REPL",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+  // {
+  //   "key": "shift+alt+d r",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "DS: R REPL",
+  //   "when": "editorTextFocus && vim.mode == 'Normal' && !notebookEditorFocused"
+  // },
+
+  // //FRONTEND
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Frontend: Build (npm run build)",
+  //   "when": "extensionStatus == installed && extension == Sinclair.react-developer-tools"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Frontend: Clean (remove build artifacts)",
+  //   "when": "extensionStatus == installed && extension == Sinclair.react-developer-tools"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Frontend: Configure (install deps)",
+  //   "when": "extensionStatus == installed && extension == Sinclair.react-developer-tools"
+  // },
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Frontend: Display (npm run dev)",
+  //   "when": "extensionStatus == installed && extension == Sinclair.react-developer-tools"
+  // },
+  
+  // // FPGA
+  // // VIVADO
+  // {
+  //   "key": "shift+alt+b v",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Vivado: Build (Arty A7)",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+  // {
+  //   "key": "shift+alt+x v",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Vivado: Program (Arty A7)",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+  // {
+  //   "key": "shift+alt+c v",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Vivado: Clean build",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+  // {
+  //   "key": "shift+alt+b q",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Quartus: Build (DE10-Nano)",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+  // {
+  //   "key": "shift+alt+x q",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Quartus: Program (DE10-Nano, default cable)",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+  // {
+  //   "key": "shift+alt+d q",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Quartus: Program (DE10-Nano, choose cable)",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+  // {
+  //   "key": "shift+alt+c q",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Quartus: Clean build",
+  //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // },
+
+  // // ESP 32
+  // // {
+  // //   "key": "shift+alt+b",
+  // //   "command": "workbench.action.tasks.runTask",
+  // //   "args": "ESP-IDF: Build",
+  // //   "when": "extensionStatus == installed && extension == mshr-h.veriloghdl"
+  // // },
+  // // {
+  // //   "key": "shift+alt+c",
+  // //   "command": "workbench.action.tasks.runTask",
+  // //   "args": "ESP-IDF: Clean",
+  // //   "when": "editorTextFocus"
+  // // },
+  // // {
+  // //   "key": "shift+alt+x",
+  // //   "command": "workbench.action.tasks.runTask",
+  // //   "args": "ESP-IDF: Configure",
+  // //   "when": "editorTextFocus"
+  // // },
+  // // {
+  // //   "key": "shift+alt+d",
+  // //   "command": "workbench.action.tasks.runTask",
+  // //   "args": "ESP-IDF: Monitor",
+  // //   "when": "editorTextFocus"
+  // // },
+
+  // // Documentation
+  // // ───────── Docs (works only for relevant filetypes via when) ─────────
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Docs: Build (current file)",
+  //   "when": "editorTextFocus && (resourceExtname == .md || resourceExtname == .puml || resourceExtname == .plantuml || resourceExtname == .drawio || resourceExtname == .dio || resourceExtname == .mmd || resourceExtname == .mermaid)"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Docs: Clean (current file)",
+  //   "when": "editorTextFocus && (resourceExtname == .md || resourceExtname == .puml || resourceExtname == .plantuml || resourceExtname == .drawio || resourceExtname == .dio || resourceExtname == .mmd || resourceExtname == .mermaid)"
+  // },
+  // // {
+  // //   "key": "shift+alt+x",
+  // //   "command": "workbench.action.tasks.runTask",
+  // //   "args": "Docs: Configure workspace",
+  // //   "when": "editorTextFocus"
+  // // },
+
+  // // Display / Preview
+  // // Markdown preview (built-in)
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "markdown.showPreviewToSide",
+  //   "when": "editorTextFocus && resourceExtname == .md"
+  // },
+
+  // // PlantUML preview (jebbs.plantuml)
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "plantuml.previewToSide",
+  //   "when": "editorTextFocus && (resourceExtname == .puml || resourceExtname == .plantuml || editorLangId == plantuml)"
+  // },
+
+  // // Draw.io: optional “display” = open a second view to the right (the editor itself is live)
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "workbench.action.splitEditorRight",
+  //   "when": "editorTextFocus && (resourceExtname == .drawio || resourceExtname == .dio)"
+  // },
+
+  // //LaTeX
+  // // ---- Build (default = latexmk (pdf) via LaTeX Workshop) ----
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "latex-workshop.build",
+  //   "when": "editorLangId == latex"
+  // },
+  // // Build with specific recipes (extension)
+  // {
+  //   "key": "shift+alt+b p",
+  //   "command": "latex-workshop.build",
+  //   "args": {
+  //     "recipe": "latexmk (pdf)"
+  //   },
+  //   "when": "editorLangId == latex"
+  // },
+  // {
+  //   "key": "shift+alt+b r",
+  //   "command": "latex-workshop.build",
+  //   "args": {
+  //     "recipe": "latexmk → biber → latexmk"
+  //   },
+  //   "when": "editorLangId == latex"
+  // },
+  // {
+  //   "key": "shift+alt+b x",
+  //   "command": "latex-workshop.build",
+  //   "args": {
+  //     "recipe": "latexmk (xelatex)"
+  //   },
+  //   "when": "editorLangId == latex"
+  // },
+  // // (Optional) Build using your explicit shell task
+  // {
+  //   "key": "shift+alt+b t",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "LaTeX: Build (active file)",
+  //   "when": "editorLangId == latex"
+  // },
+
+  // // ---- Clean ----
+  // // Quick clean (LaTeX Workshop’s clean respects your clean.fileTypes)
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "latex-workshop.clean",
+  //   "when": "editorLangId == latex"
+  // },
+  // // Clean (aux) via your task
+  // {
+  //   "key": "shift+alt+c a",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "LaTeX: Clean Aux (active file)",
+  //   "when": "editorLangId == latex"
+  // },
+  // // Clean ALL via your task
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "LaTeX: Clean All (active file)",
+  //   "when": "editorLangId == latex"
+  // },
+
+  // // ---- Configure (pick recipe / set root) ----
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "latex-workshop.recipes",
+  //   "when": "editorLangId == latex"
+  // },
+  // {
+  //   "key": "shift+alt+x r",
+  //   "command": "latex-workshop.selectRoot",
+  //   "when": "editorLangId == latex"
+  // },
+
+  // // ---- Display (open PDF viewer) ----
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "latex-workshop.view",
+  //   "when": "editorLangId == latex"
+  // },
+  // {
+  //   "key": "shift+alt+d e",
+  //   "command": "latex-workshop.viewExternal",
+  //   "when": "editorLangId == latex"
+  // },
+
+  // // Android dev
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Build Debug",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Clean",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Configure (install deps)",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Run on Device",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+
+  // // extras for this profile
+  // {
+  //   "key": "shift+alt+d m",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Start Metro",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+  // {
+  //   "key": "shift+alt+d e",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Start First AVD",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+  // {
+  //   "key": "shift+alt+d l",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Android: Logcat (RN)",
+  //   "when": "extensionStatus == installed && extension == DiemasMichiels.emulate"
+  // },
+
+  // // MPLAB  microchip.runcmake
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "runcmake.build",
+  //   "when": "extensionStatus == installed && extension == microchip.runcmake"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "runcmake.clean",
+  //   "when": "extensionStatus == installed && extension == microchip.runcmake"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "runcmake.cleanBuild",
+  //   "when": "extensionStatus == installed && extension == microchip.runcmake"
+  // },
+  // {
+  //   "key": "shift+alt+d p",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Build (ext) + Flash: PICkit 4"
+  // },
+  // {
+  //   "key": "shift+alt+d a",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "Build (ext) + Flash: Atmel-ICE (AVR)"
+  // },
+
+  // // NRF
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "nrf-connect.buildAll",
+  //   "when": "extensionStatus == installed && extension == nordic-semiconductor.nrf-connect-extension-pack"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "nrf-connect.clean-build",
+  //   "when": "extensionStatus == installed && extension == nordic-semiconductor.nrf-connect-extension-pack"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "nrf-connect.selectActiveBuildConfiguration",
+  //   "when": "extensionStatus == installed && extension == nordic-semiconductor.nrf-connect-extension-pack"
+  // },
+  // // Optional extras, if you want quick flashing:
+  // {
+  //   "key": "shift+alt+d f",
+  //   "command": "nrf-connect.flash",
+  //   "when": "extensionStatus == installed && extension == nordic-semiconductor.nrf-connect-extension-pack"
+  // },
+  // {
+  //   "key": "shift+alt+d e",
+  //   "command": "nrf-connect.eraseAndFlash",
+  //   "when": "extensionStatus == installed && extension == nordic-semiconductor.nrf-connect-extension-pack"
+  // },
+
+  // // NXP
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "mcuxpresso.buildProject",
+  //   "when": "extensionStatus == installed && extension == NXPSemiconductors.mcuxpresso"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "mcuxpresso.cleanCommand",
+  //   "when": "extensionStatus == installed && extension == NXPSemiconductors.mcuxpresso"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "mcuxpresso.openGUIConfig",
+  //   "when": "extensionStatus == installed && extension == NXPSemiconductors.mcuxpresso"
+  // },
+  // {
+  //   "key": "shift+alt+f f",
+  //   "command": "mcuxpresso.openFlashProgrammer",
+  //   "when": "extensionStatus == installed && extension == NXPSemiconductors.mcuxpresso"
+  // },
+  // {
+  //   "key": "shift+alt+d d",
+  //   "command": "mcuxpresso.createHex",  
+  //   "when": "extensionStatus == installed && extension == NXPSemiconductors.mcuxpresso"
+  // },
+
+  // // STM32 CMAKE TI
+  // {
+  //   "key": "shift+alt+b b",
+  //   "command": "cmake.build",
+  //   "when": "extensionStatus == installed && extension == ms-vscode.cmake-tools"
+  // },
+  // {
+  //   "key": "shift+alt+c c",
+  //   "command": "cmake.clean",
+  //   "when": "extensionStatus == installed && extension == ms-vscode.cmake-tools"
+  // },
+  // {
+  //   "key": "shift+alt+x x",
+  //   "command": "cmake.configure",
+  //   "when": "extensionStatus == installed && extension == ms-vscode.cmake-tools"
+  // },
+
+]

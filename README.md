@@ -1,6 +1,15 @@
 # VS CODE keymaps and settings
 
-For windows and linux
+## Extension list
 
-Vim extension key bindings
-
+- bracket pair color DLW
+- code spell checker
+- color vision
+- edit csv
+- error lens
+- file utils
+- periscope
+- harpoon
+- todo tree
+- vsnetrw
+- vim

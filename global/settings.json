@@ -1,0 +1,68 @@
+{
+  //------------------ GENERAL -------------------------------//
+  // -------------------- VIM SETUP ------------------------//
+  // NON-RECURSIVE
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] }
+  ],
+
+  "vim.insertModeKeyBindingsNonRecursive": [],
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Add line below / above
+    { "before": ["<leader>", "j"], "after": ["o", "<esc>"] },
+    { "before": ["<leader>", "k"], "after": ["S-o", "<esc>"] },
+
+    // Save / close
+    { "before": ["<leader>", "w"], "commands": ["workbench.action.files.save"] },
+    { "before": ["<leader>", "q"], "commands": ["workbench.action.closeActiveEditor"] },
+
+    // Comment line
+    { "before": ["<leader>", "/"], "commands": ["editor.action.commentLine"] },
+
+    // Insert a tab at cursor
+    { "before": ["<leader>", "t"], "after": ["i", "\t", "<esc>"] },
+
+    // Clear highlight
+    { "before": ["<leader>", "c", "h"], "commands": [":noh"] },
+
+    // Navigate & move editors between groups
+    { "before": ["<leader>", "u"], "commands": ["workbench.action.navigateEditorGroups"] },
+    { "before": ["<leader>", "m"], "commands": ["workbench.action.moveEditorToNextGroup"] },
+    { "before": ["<leader>", "g"], "commands": ["workbench.action.moveEditorToPreviousGroup"] },
+    { "before": ["<leader>", "o"], "commands": ["workbench.action.nextEditorInGroup"] },
+    { "before": ["<leader>", "a"], "commands": ["workbench.action.previousEditorInGroup"] },
+
+    // Search files (workspace / current group)
+    { "before": ["<leader>", "s", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "s", "g"], "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"] },
+    // Focus explorer
+    { "before": ["<leader>", "s","e"], "commands": ["workbench.view.explorer"] },
+
+    // File tree (vsnetrw) & periscope & definition aside
+    { "before": ["<leader>", "e"], "commands": ["vsnetrw.open"] },
+    { "before": ["<leader>", "f", "f"], "commands": ["periscope.searchCurrentFile"] },
+    { "before": ["<leader>", "r", "d"], "commands": ["editor.action.revealDefinitionAside"] },
+
+    // Harpoon
+    { "before": ["<leader>", "<leader>", "h"], "commands": ["vscode-harpoon.editorQuickPick"] },
+    { "before": ["<leader>", "<leader>", "a"], "commands": ["vscode-harpoon.addEditor"] },
+    { "before": ["<leader>", "<leader>", "p"], "commands": ["vscode-harpoon.gotoPreviousHarpoonEditor"] },
+    // { "before": ["<leader>", "<leader>", "n"], "commands": ["vscode-harpoon.gotoNextHarpoonEditor"] },
+    // { "before": ["<leader>", "<leader>", "l"], "commands": ["vscode-harpoon.gotoLastHarpoonEditor"] },
+    // { "before": ["<leader>", "<leader>", "r"], "commands": ["vscode-harpoon.removeEditor"] },
+    // { "before": ["<leader>", "<leader>", "c"], "commands": ["vscode-harpoon.clearHarpoon"] },
+  ],
+  "nrf-connect.enableTelemetry": true,
+  "terminal.integrated.inheritEnv": false,
+  "editor.occurrencesHighlight": "off",   // "off" | "singleFile" | "multiFile"
+  "editor.selectionHighlight": false,
+  "editor.wordHighlight": false,
+  "editor.wordHighlightStrong": false,
+"editor.find.highlightSearchResults": false,
+"keyboard.dispatch": "keyCode",
+"files.associations": {
+  "*.{a80,z80,asm,inc,s}": "asm-collection",
+  "*.{list,lis}": "asm-collection-list"
+}
+}
